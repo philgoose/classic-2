@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6E1522">
+<meta name="description" content="CADENZA 대작곡가 특집호 — 모차르트, 비발디, 쇼팽, 바흐의 생애와 대표작을 한 권으로.">
+<title>CADENZA — 대작곡가 특집호 · Mozart · Vivaldi · Chopin · Bach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   CADENZA — Great Composers Special Edition
+   좋은기분(Feelsogood^^) · v1.0
+   ============================================ */
+:root{
+  --wine:#6E1522;
+  --wine-deep:#4A0D17;
+  --wine-glow:#8B1D2C;
+  --ivory:#F5EFE6;
+  --ivory-soft:#EFE7DA;
+  --parchment:#E9DFCC;
+  --ink:#1A1614;
+  --ink-soft:#3A3128;
+  --gold:#C9A961;
+  --gold-soft:#D9BE7A;
+  --rose:#E8D5D5;
+  --rule:#D9CDB8;
+  --shadow: 0 30px 60px -30px rgba(74,13,23,.35);
+  --serif-display:'Cormorant Garamond', 'Noto Serif KR', serif;
+  --serif-body:'EB Garamond', 'Noto Serif KR', serif;
+  --sans-ko:'Noto Sans KR', system-ui, sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, monospace;
+}
+
+[data-theme="dark"]{
+  --ivory:#161114;
+  --ivory-soft:#1E1719;
+  --parchment:#241B1E;
+  --ink:#F1E9DA;
+  --ink-soft:#C8BAA1;
+  --rule:#3A2A2E;
+  --wine:#B14556;
+  --wine-glow:#D46A7B;
+  --gold:#E4C482;
+  --rose:#3A2A2E;
+  --shadow: 0 30px 60px -30px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--serif-body);
+  background:var(--ivory);
+  color:var(--ink);
+  line-height:1.6;
+  font-size:18px;
+  -webkit-font-smoothing:antialiased;
+  transition:background .4s ease, color .4s ease;
+  overflow-x:hidden;
+}
+
+/* ---- Paper texture ---- */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(201,169,97,.04) 0, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(110,21,34,.03) 0, transparent 40%);
+  pointer-events:none;z-index:0;
+}
+
+/* ============================================
+   TOP BAR
+   ============================================ */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:var(--wine);
+  color:var(--ivory);
+  font-family:var(--sans-ko);
+  font-size:12px;
+  letter-spacing:.08em;
+  padding:10px 0;
+  border-bottom:1px solid var(--wine-deep);
+}
+.topbar-inner{
+  max-width:1240px;margin:0 auto;padding:0 32px;
+  display:flex;justify-content:space-between;align-items:center;gap:24px;
+}
+.topbar-left{display:flex;gap:20px;align-items:center;opacity:.92}
+.topbar-left span{opacity:.85}
+.topbar-right{display:flex;gap:18px;align-items:center}
+.topbar-right a, .topbar-right button{
+  color:var(--ivory);text-decoration:none;font-size:12px;
+  background:none;border:none;cursor:pointer;font-family:var(--sans-ko);
+  letter-spacing:.08em;opacity:.9;transition:opacity .2s;
+}
+.topbar-right a:hover, .topbar-right button:hover{opacity:1;text-decoration:underline}
+
+/* ============================================
+   MASTHEAD
+   ============================================ */
+.masthead{
+  position:relative;
+  padding:56px 32px 32px;
+  max-width:1240px;margin:0 auto;
+  text-align:center;
+  border-bottom:3px double var(--ink);
+}
+.masthead .eyebrow{
+  font-family:var(--sans-ko);
+  font-size:11px;
+  letter-spacing:.35em;
+  text-transform:uppercase;
+  color:var(--wine);
+  margin-bottom:12px;
+}
+.masthead h1{
+  font-family:var(--serif-display);
+  font-weight:500;
+  font-size:clamp(4.5rem, 12vw, 9rem);
+  letter-spacing:-.02em;
+  line-height:.9;
+  color:var(--ink);
+}
+.masthead h1 .period{color:var(--wine)}
+.masthead .subtitle{
+  font-family:var(--serif-display);
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(1.1rem, 2vw, 1.4rem);
+  color:var(--ink-soft);
+  margin-top:14px;
+  letter-spacing:.02em;
+}
+.masthead .meta-line{
+  display:flex;justify-content:center;gap:32px;
+  margin-top:24px;
+  font-family:var(--sans-ko);
+  font-size:11px;letter-spacing:.15em;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+  flex-wrap:wrap;
+}
+.masthead .meta-line span{position:relative}
+.masthead .meta-line span+span::before{
+  content:"·";position:absolute;left:-18px;color:var(--gold);
+}
+
+/* Ornament flourish */
+.flourish{
+  display:block;margin:20px auto;
+  width:180px;height:24px;
+  color:var(--gold);
+}
+
+/* ============================================
+   NAV
+   ============================================ */
+.nav-bar{
+  max-width:1240px;margin:0 auto;padding:16px 32px;
+  border-bottom:1px solid var(--rule);
+  display:flex;justify-content:center;gap:8px;
+  font-family:var(--sans-ko);
+  flex-wrap:wrap;
+}
+.nav-bar a{
+  color:var(--ink);text-decoration:none;
+  font-size:13px;letter-spacing:.05em;
+  padding:6px 14px;border-radius:2px;
+  transition:all .2s;
+}
+.nav-bar a:hover{background:var(--wine);color:var(--ivory)}
+
+/* ============================================
+   HERO ISSUE
+   ============================================ */
+.hero{
+  max-width:1240px;margin:0 auto;padding:64px 32px 40px;
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+  position:relative;
+}
+.hero-copy .issue-tag{
+  display:inline-block;
+  font-family:var(--sans-ko);font-size:11px;
+  letter-spacing:.25em;color:var(--wine);
+  padding:6px 12px;border:1px solid var(--wine);
+  margin-bottom:24px;text-transform:uppercase;
+}
+.hero-copy h2{
+  font-family:var(--serif-display);font-weight:500;
+  font-size:clamp(2.6rem, 5vw, 4rem);
+  line-height:1;letter-spacing:-.015em;
+  margin-bottom:20px;
+}
+.hero-copy h2 em{color:var(--wine);font-style:italic}
+.hero-copy p.lead{
+  font-family:var(--serif-body);
+  font-size:1.15rem;
+  color:var(--ink-soft);
+  line-height:1.7;
+  max-width:44ch;
+}
+.hero-copy .byline{
+  margin-top:28px;
+  font-family:var(--sans-ko);font-size:12px;
+  letter-spacing:.12em;color:var(--ink-soft);
+  padding-top:16px;border-top:1px solid var(--rule);
+  display:flex;justify-content:space-between;max-width:44ch;
+}
+.hero-copy .byline strong{color:var(--wine);font-weight:600}
+
+/* Hero SVG collage */
+.hero-visual{
+  position:relative;aspect-ratio:1/1;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-visual svg{width:100%;height:auto;filter:drop-shadow(0 20px 40px rgba(74,13,23,.15))}
+
+/* ============================================
+   COMPOSER PROFILES
+   ============================================ */
+.composer-section{
+  padding:80px 0;
+  border-top:1px solid var(--rule);
+  position:relative;
+}
+.composer-section:nth-child(even){background:var(--ivory-soft)}
+
+.composer-wrap{
+  max-width:1240px;margin:0 auto;padding:0 32px;
+  display:grid;grid-template-columns:280px 1fr;gap:64px;
+  position:relative;
+}
+
+/* Left column: portrait + facts */
+.composer-side{position:sticky;top:80px;height:fit-content}
+
+.portrait-frame{
+  aspect-ratio:3/4;
+  background:var(--parchment);
+  border:1px solid var(--rule);
+  padding:14px;
+  box-shadow:var(--shadow);
+  position:relative;
+}
+.portrait-frame::before{
+  content:"";position:absolute;
+  inset:6px;border:1px solid var(--gold);
+  pointer-events:none;
+}
+.portrait-frame svg{width:100%;height:100%;display:block}
+
+.facts{
+  margin-top:24px;
+  font-family:var(--sans-ko);font-size:12px;
+  letter-spacing:.03em;
+}
+.facts dl{display:grid;grid-template-columns:80px 1fr;gap:8px 12px}
+.facts dt{color:var(--wine);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:10px;padding-top:2px}
+.facts dd{color:var(--ink);font-family:var(--serif-body);font-size:14px}
+
+/* Right column: main article */
+.composer-main .opus-num{
+  font-family:var(--mono);font-size:12px;
+  color:var(--wine);letter-spacing:.15em;
+  margin-bottom:12px;
+}
+.composer-main h3{
+  font-family:var(--serif-display);
+  font-weight:400;
+  font-size:clamp(3rem, 6vw, 5rem);
+  line-height:.95;
+  letter-spacing:-.02em;
+  margin-bottom:8px;
+}
+.composer-main h3 em{color:var(--wine);font-style:italic}
+.composer-main .composer-ko{
+  font-family:var(--serif-body);
+  font-style:italic;
+  font-size:1.4rem;
+  color:var(--ink-soft);
+  margin-bottom:24px;
+}
+
+.composer-main .standfirst{
+  font-family:var(--serif-body);
+  font-size:1.35rem;
+  line-height:1.5;
+  color:var(--ink);
+  margin:24px 0 32px;
+  padding-left:20px;
+  border-left:3px solid var(--wine);
+}
+
+.composer-main .drop-cap{
+  display:block;
+  font-family:var(--serif-display);
+  font-weight:500;
+}
+.composer-main .drop-cap::first-letter{
+  float:left;
+  font-size:5.5rem;
+  line-height:.85;
+  padding:6px 12px 0 0;
+  color:var(--wine);
+  font-weight:600;
+}
+
+.composer-main p{
+  font-family:var(--serif-body);
+  font-size:1.08rem;
+  line-height:1.75;
+  color:var(--ink);
+  margin-bottom:20px;
+  text-align:justify;
+  hyphens:auto;
+}
+
+/* Pull quote */
+.pull-quote{
+  margin:40px 0;
+  padding:32px 0;
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  text-align:center;
+}
+.pull-quote blockquote{
+  font-family:var(--serif-display);
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(1.5rem, 3vw, 2.1rem);
+  line-height:1.35;
+  color:var(--wine);
+  max-width:38ch;margin:0 auto;
+}
+.pull-quote cite{
+  display:block;
+  margin-top:16px;
+  font-family:var(--sans-ko);
+  font-style:normal;
+  font-size:11px;
+  letter-spacing:.25em;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+}
+
+/* Works list */
+.works{
+  margin-top:40px;
+  background:var(--parchment);
+  padding:32px;
+  border-left:4px solid var(--gold);
+}
+.works h4{
+  font-family:var(--sans-ko);
+  font-size:11px;letter-spacing:.25em;
+  color:var(--wine);text-transform:uppercase;
+  margin-bottom:18px;
+  padding-bottom:10px;border-bottom:1px solid var(--rule);
+}
+.works ol{
+  list-style:none;counter-reset:opus;
+  display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:16px 32px;
+}
+.works li{
+  counter-increment:opus;
+  position:relative;padding-left:36px;
+  font-family:var(--serif-body);font-size:15px;
+  line-height:1.4;
+}
+.works li::before{
+  content:counter(opus, decimal-leading-zero);
+  position:absolute;left:0;top:2px;
+  font-family:var(--mono);font-size:11px;
+  color:var(--gold);letter-spacing:.05em;
+}
+.works li strong{display:block;font-weight:600;color:var(--wine)}
+.works li em{font-style:italic;color:var(--ink-soft);font-size:13px}
+
+/* ============================================
+   TIMELINE
+   ============================================ */
+.timeline-section{
+  padding:80px 32px;
+  background:var(--wine);
+  color:var(--ivory);
+  position:relative;
+  overflow:hidden;
+}
+.timeline-section::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 15% 30%, rgba(232,213,213,.05) 0, transparent 30%),
+    radial-gradient(circle at 85% 70%, rgba(201,169,97,.08) 0, transparent 40%);
+  pointer-events:none;
+}
+.timeline-inner{
+  max-width:1240px;margin:0 auto;position:relative;
+}
+.timeline-inner h3{
+  font-family:var(--serif-display);
+  font-size:clamp(2.4rem, 5vw, 3.6rem);
+  font-weight:400;letter-spacing:-.01em;
+  text-align:center;margin-bottom:8px;
+}
+.timeline-inner .sub{
+  text-align:center;font-family:var(--serif-body);
+  font-style:italic;opacity:.75;margin-bottom:56px;
+  font-size:1.05rem;
+}
+.timeline-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  position:relative;
+  border-top:1px solid rgba(245,239,230,.2);
+  padding-top:32px;
+}
+.tl-item{
+  text-align:center;padding:16px 20px;
+  border-right:1px solid rgba(245,239,230,.15);
+  position:relative;
+}
+.tl-item:last-child{border-right:none}
+.tl-item .year{
+  font-family:var(--serif-display);
+  font-size:2.4rem;line-height:1;
+  color:var(--gold);
+  margin-bottom:8px;
+  letter-spacing:-.02em;
+}
+.tl-item .name{
+  font-family:var(--sans-ko);font-size:14px;
+  font-weight:500;letter-spacing:.05em;
+  margin-bottom:4px;
+}
+.tl-item .era{
+  font-family:var(--serif-body);font-style:italic;
+  font-size:13px;opacity:.75;
+}
+.tl-item::before{
+  content:"";position:absolute;top:-38px;left:50%;
+  transform:translateX(-50%);
+  width:12px;height:12px;
+  border-radius:50%;background:var(--gold);
+  box-shadow:0 0 0 4px var(--wine);
+}
+
+/* ============================================
+   COMPARISON CARD
+   ============================================ */
+.compare{
+  max-width:1240px;margin:0 auto;padding:80px 32px;
+}
+.compare h3{
+  font-family:var(--serif-display);
+  font-size:clamp(2rem, 4vw, 3rem);
+  text-align:center;margin-bottom:8px;
+  font-weight:500;
+}
+.compare .sub{
+  text-align:center;font-family:var(--serif-body);
+  font-style:italic;color:var(--ink-soft);
+  margin-bottom:48px;font-size:1.05rem;
+}
+.compare-table{
+  width:100%;border-collapse:collapse;
+  font-family:var(--serif-body);
+  font-size:15px;
+}
+.compare-table th{
+  text-align:left;
+  padding:16px 12px;
+  border-bottom:2px solid var(--wine);
+  font-family:var(--sans-ko);
+  font-size:11px;letter-spacing:.2em;
+  color:var(--wine);text-transform:uppercase;
+  font-weight:600;
+}
+.compare-table td{
+  padding:18px 12px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+  line-height:1.5;
+}
+.compare-table tr:hover td{background:var(--parchment)}
+.compare-table td:first-child{
+  font-family:var(--serif-display);
+  font-size:1.15rem;
+  color:var(--wine);
+  font-weight:600;
+}
+
+/* ============================================
+   NEWSLETTER
+   ============================================ */
+.newsletter{
+  background:var(--ink);color:var(--ivory);
+  padding:80px 32px;position:relative;overflow:hidden;
+}
+.newsletter::before{
+  content:"CADENZA";
+  position:absolute;
+  font-family:var(--serif-display);
+  font-size:22rem;font-weight:500;
+  color:rgba(201,169,97,.05);
+  bottom:-80px;left:-40px;
+  line-height:1;letter-spacing:-.05em;
+  pointer-events:none;
+}
+.newsletter-inner{
+  max-width:720px;margin:0 auto;text-align:center;
+  position:relative;z-index:1;
+}
+.newsletter .eyebrow{
+  font-family:var(--sans-ko);font-size:11px;
+  letter-spacing:.35em;color:var(--gold);
+  text-transform:uppercase;margin-bottom:16px;
+}
+.newsletter h3{
+  font-family:var(--serif-display);
+  font-size:clamp(2.2rem, 4vw, 3.4rem);
+  font-weight:400;line-height:1.1;margin-bottom:16px;
+}
+.newsletter h3 em{color:var(--gold);font-style:italic}
+.newsletter p{
+  font-family:var(--serif-body);
+  font-size:1.1rem;line-height:1.6;
+  opacity:.8;margin-bottom:32px;
+  max-width:52ch;margin-left:auto;margin-right:auto;
+}
+.newsletter form{
+  display:flex;gap:0;max-width:480px;margin:0 auto;
+  border:1px solid var(--gold);
+}
+.newsletter input{
+  flex:1;background:transparent;border:none;
+  padding:16px 20px;color:var(--ivory);
+  font-family:var(--serif-body);font-size:16px;
+  outline:none;
+}
+.newsletter input::placeholder{color:rgba(245,239,230,.4)}
+.newsletter button{
+  background:var(--gold);color:var(--ink);
+  border:none;padding:0 32px;
+  font-family:var(--sans-ko);font-size:12px;
+  letter-spacing:.15em;text-transform:uppercase;
+  cursor:pointer;transition:background .2s;
+  font-weight:600;
+}
+.newsletter button:hover{background:var(--gold-soft)}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer{
+  background:var(--wine-deep);color:var(--ivory);
+  padding:60px 32px 32px;
+}
+.footer-inner{
+  max-width:1240px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;
+}
+.footer-brand h4{
+  font-family:var(--serif-display);
+  font-size:2rem;font-weight:500;
+  letter-spacing:-.01em;margin-bottom:12px;
+}
+.footer-brand h4 .period{color:var(--gold)}
+.footer-brand p{
+  font-family:var(--serif-body);font-style:italic;
+  opacity:.7;font-size:14px;line-height:1.5;
+  max-width:32ch;
+}
+.footer-col h5{
+  font-family:var(--sans-ko);font-size:11px;
+  letter-spacing:.25em;color:var(--gold);
+  text-transform:uppercase;margin-bottom:16px;
+  padding-bottom:10px;border-bottom:1px solid rgba(201,169,97,.2);
+}
+.footer-col ul{list-style:none;font-family:var(--sans-ko);font-size:13px}
+.footer-col li{margin-bottom:10px}
+.footer-col a{color:var(--ivory);opacity:.75;text-decoration:none;transition:opacity .2s}
+.footer-col a:hover{opacity:1;color:var(--gold)}
+
+.footer-bottom{
+  max-width:1240px;margin:40px auto 0;
+  padding-top:24px;border-top:1px solid rgba(245,239,230,.1);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  font-family:var(--sans-ko);font-size:11px;
+  letter-spacing:.1em;opacity:.6;
+}
+.footer-bottom strong{color:var(--gold);font-weight:500}
+
+/* Cherry blossom drift accent */
+.blossom-accent{
+  position:absolute;
+  color:var(--rose);
+  opacity:.35;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px){
+  .hero{grid-template-columns:1fr;gap:32px;padding:40px 24px}
+  .hero-visual{max-width:420px;margin:0 auto}
+  .composer-wrap{grid-template-columns:1fr;gap:32px;padding:0 24px}
+  .composer-side{position:static}
+  .portrait-frame{max-width:280px;margin:0 auto}
+  .timeline-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .tl-item{border-right:none;border-bottom:1px solid rgba(245,239,230,.15);padding-bottom:24px}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:32px}
+  .masthead{padding:40px 24px 24px}
+  .newsletter form{flex-direction:column;border:none;gap:12px}
+  .newsletter input{border:1px solid var(--gold);text-align:center}
+  .newsletter button{padding:16px;border:1px solid var(--gold)}
+}
+@media (max-width: 560px){
+  body{font-size:16px}
+  .timeline-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .topbar-inner{padding:0 16px;font-size:11px;gap:12px}
+  .topbar-left span:not(:first-child){display:none}
+  .compare-table{font-size:13px}
+  .compare-table th, .compare-table td{padding:12px 8px}
+  .works{padding:20px}
+  .works ol{grid-template-columns:1fr}
+}
+
+/* Print */
+@media print{
+  .topbar, .nav-bar, .newsletter, .footer{display:none}
+  body{font-size:11pt}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span>Vol. IV · No. 07</span>
+      <span>· 대작곡가 특집호</span>
+      <span>· 2026 여름</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#newsletter">뉴스레터</a>
+      <a href="https://philgoose.github.io/classic/">CADENZA 본지</a>
+      <button id="theme-toggle" title="테마 전환">☾ 다크</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MASTHEAD ============ -->
+<header class="masthead">
+  <div class="eyebrow">The Classical Music Review · Special Edition</div>
+  <h1>CADENZA<span class="period">.</span></h1>
+  <p class="subtitle">Four Masters · Four Ages · One Language</p>
+
+  <svg class="flourish" viewBox="0 0 200 24" fill="none">
+    <path d="M10 12 L70 12 M130 12 L190 12" stroke="currentColor" stroke-width="1"/>
+    <path d="M75 12 C80 4, 90 4, 95 12 C100 20, 110 20, 115 12 C120 4, 125 4, 125 12" stroke="currentColor" stroke-width="1.2" fill="none"/>
+    <circle cx="100" cy="12" r="2" fill="currentColor"/>
+    <circle cx="72" cy="12" r="1.5" fill="currentColor"/>
+    <circle cx="128" cy="12" r="1.5" fill="currentColor"/>
+  </svg>
+
+  <div class="meta-line">
+    <span>Mozart</span>
+    <span>Vivaldi</span>
+    <span>Chopin</span>
+    <span>Bach</span>
+  </div>
+</header>
+
+<!-- ============ NAV ============ -->
+<nav class="nav-bar">
+  <a href="#hero">특집호 서문</a>
+  <a href="#mozart">모차르트</a>
+  <a href="#vivaldi">비발디</a>
+  <a href="#chopin">쇼팽</a>
+  <a href="#bach">바흐</a>
+  <a href="#timeline">연대기</a>
+  <a href="#compare">비교</a>
+  <a href="#newsletter">구독</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-copy">
+    <span class="issue-tag">Special Edition · 4 Composers</span>
+    <h2>네 시대, 네 사람, <em>하나의 언어</em>.</h2>
+    <p class="lead">
+      바로크의 정교한 기하학에서 고전주의의 명료함으로,
+      그리고 낭만주의의 내밀한 서정으로 — 서양음악의 심장을
+      만든 네 거장을 한 권에 담았다.
+    </p>
+    <p class="lead" style="margin-top:16px;">
+      바흐가 세운 구조 위에 비발디가 색을 입혔고,
+      모차르트가 완벽을 조각했으며, 쇼팽이 마침내 피아노에 시(詩)를
+      가르쳤다. 이 특집호는 그 계보를 다시 읽는다.
+    </p>
+    <div class="byline">
+      <span>글 · <strong>편집부</strong></span>
+      <span>2026년 여름호</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <!-- Piano keyboard + violin + score ornament composition -->
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="paperBg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#F5EFE6"/>
+          <stop offset="1" stop-color="#E9DFCC"/>
+        </linearGradient>
+        <linearGradient id="wineGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#8B1D2C"/>
+          <stop offset="1" stop-color="#4A0D17"/>
+        </linearGradient>
+      </defs>
+
+      <!-- background paper -->
+      <rect x="20" y="20" width="460" height="460" fill="url(#paperBg)" stroke="#C9A961" stroke-width="1"/>
+      <rect x="28" y="28" width="444" height="444" fill="none" stroke="#C9A961" stroke-width="0.5"/>
+
+      <!-- Staff lines -->
+      <g stroke="#3A3128" stroke-width="0.5" opacity="0.4">
+        <line x1="60" y1="90" x2="440" y2="90"/>
+        <line x1="60" y1="100" x2="440" y2="100"/>
+        <line x1="60" y1="110" x2="440" y2="110"/>
+        <line x1="60" y1="120" x2="440" y2="120"/>
+        <line x1="60" y1="130" x2="440" y2="130"/>
+      </g>
+
+      <!-- Treble clef -->
+      <g transform="translate(70,75)" fill="#6E1522">
+        <path d="M15 15 C12 5, 25 -5, 30 8 C35 20, 25 30, 18 32 C10 35, 5 45, 12 55 C20 65, 32 60, 32 48 C32 40, 25 35, 20 40 M18 32 L18 78 C18 84, 12 86, 8 82 C4 78, 8 72, 14 76" 
+              stroke="#6E1522" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+
+      <!-- Notes -->
+      <g fill="#1A1614">
+        <ellipse cx="150" cy="115" rx="7" ry="5" transform="rotate(-20 150 115)"/>
+        <line x1="157" y1="115" x2="157" y2="75" stroke="#1A1614" stroke-width="1.5"/>
+        <ellipse cx="200" cy="105" rx="7" ry="5" transform="rotate(-20 200 105)"/>
+        <line x1="207" y1="105" x2="207" y2="65" stroke="#1A1614" stroke-width="1.5"/>
+        <ellipse cx="250" cy="120" rx="7" ry="5" transform="rotate(-20 250 120)"/>
+        <line x1="257" y1="120" x2="257" y2="80" stroke="#1A1614" stroke-width="1.5"/>
+        <ellipse cx="300" cy="110" rx="7" ry="5" transform="rotate(-20 300 110)"/>
+        <line x1="307" y1="110" x2="307" y2="70" stroke="#1A1614" stroke-width="1.5"/>
+        <ellipse cx="350" cy="100" rx="7" ry="5" transform="rotate(-20 350 100)"/>
+        <line x1="357" y1="100" x2="357" y2="60" stroke="#1A1614" stroke-width="1.5"/>
+        <ellipse cx="400" cy="115" rx="7" ry="5" transform="rotate(-20 400 115)"/>
+        <line x1="407" y1="115" x2="407" y2="75" stroke="#1A1614" stroke-width="1.5"/>
+      </g>
+
+      <!-- Piano keyboard -->
+      <g transform="translate(60, 200)">
+        <rect x="0" y="0" width="380" height="90" fill="#FEFCF6" stroke="#1A1614" stroke-width="1.5"/>
+        <!-- White key separators -->
+        <g stroke="#1A1614" stroke-width="0.8">
+          <line x1="27" y1="0" x2="27" y2="90"/>
+          <line x1="54" y1="0" x2="54" y2="90"/>
+          <line x1="81" y1="0" x2="81" y2="90"/>
+          <line x1="108" y1="0" x2="108" y2="90"/>
+          <line x1="135" y1="0" x2="135" y2="90"/>
+          <line x1="162" y1="0" x2="162" y2="90"/>
+          <line x1="189" y1="0" x2="189" y2="90"/>
+          <line x1="216" y1="0" x2="216" y2="90"/>
+          <line x1="243" y1="0" x2="243" y2="90"/>
+          <line x1="270" y1="0" x2="270" y2="90"/>
+          <line x1="297" y1="0" x2="297" y2="90"/>
+          <line x1="324" y1="0" x2="324" y2="90"/>
+          <line x1="351" y1="0" x2="351" y2="90"/>
+        </g>
+        <!-- Black keys -->
+        <g fill="#1A1614">
+          <rect x="18" y="0" width="18" height="55"/>
+          <rect x="45" y="0" width="18" height="55"/>
+          <rect x="99" y="0" width="18" height="55"/>
+          <rect x="126" y="0" width="18" height="55"/>
+          <rect x="153" y="0" width="18" height="55"/>
+          <rect x="207" y="0" width="18" height="55"/>
+          <rect x="234" y="0" width="18" height="55"/>
+          <rect x="288" y="0" width="18" height="55"/>
+          <rect x="315" y="0" width="18" height="55"/>
+          <rect x="342" y="0" width="18" height="55"/>
+        </g>
+      </g>
+
+      <!-- Violin silhouette -->
+      <g transform="translate(180, 320) rotate(-15)" fill="url(#wineGrad)" stroke="#4A0D17" stroke-width="0.8">
+        <path d="M0 0 C-15 5, -20 20, -12 35 C-18 45, -18 60, -8 65 C0 80, 8 90, 18 90 C28 90, 40 78, 40 60 C48 52, 45 38, 35 32 C42 20, 35 5, 20 0 Z"/>
+        <!-- f-holes -->
+        <path d="M12 40 C10 42, 10 48, 12 50" stroke="#F5EFE6" stroke-width="1" fill="none"/>
+        <path d="M28 40 C30 42, 30 48, 28 50" stroke="#F5EFE6" stroke-width="1" fill="none"/>
+        <!-- strings -->
+        <line x1="18" y1="10" x2="18" y2="80" stroke="#F5EFE6" stroke-width="0.4"/>
+        <line x1="20" y1="10" x2="20" y2="80" stroke="#F5EFE6" stroke-width="0.4"/>
+        <line x1="22" y1="10" x2="22" y2="80" stroke="#F5EFE6" stroke-width="0.4"/>
+        <!-- scroll -->
+        <path d="M20 0 C15 -8, 25 -14, 28 -6 C30 -2, 24 2, 20 0" fill="url(#wineGrad)"/>
+      </g>
+
+      <!-- Cherry blossom subtle -->
+      <g transform="translate(390, 350)" opacity="0.5">
+        <g fill="#E8D5D5">
+          <ellipse cx="0" cy="-8" rx="5" ry="8" transform="rotate(0)"/>
+          <ellipse cx="0" cy="-8" rx="5" ry="8" transform="rotate(72)"/>
+          <ellipse cx="0" cy="-8" rx="5" ry="8" transform="rotate(144)"/>
+          <ellipse cx="0" cy="-8" rx="5" ry="8" transform="rotate(216)"/>
+          <ellipse cx="0" cy="-8" rx="5" ry="8" transform="rotate(288)"/>
+        </g>
+        <circle cx="0" cy="0" r="2.5" fill="#C9A961"/>
+      </g>
+      <g transform="translate(420, 400)" opacity="0.3">
+        <g fill="#E8D5D5">
+          <ellipse cx="0" cy="-6" rx="4" ry="6" transform="rotate(20)"/>
+          <ellipse cx="0" cy="-6" rx="4" ry="6" transform="rotate(92)"/>
+          <ellipse cx="0" cy="-6" rx="4" ry="6" transform="rotate(164)"/>
+          <ellipse cx="0" cy="-6" rx="4" ry="6" transform="rotate(236)"/>
+          <ellipse cx="0" cy="-6" rx="4" ry="6" transform="rotate(308)"/>
+        </g>
+        <circle cx="0" cy="0" r="2" fill="#C9A961"/>
+      </g>
+
+      <!-- corner ornaments -->
+      <g stroke="#C9A961" stroke-width="1" fill="none" opacity="0.7">
+        <path d="M35 35 C45 35, 50 40, 50 50"/>
+        <path d="M465 35 C455 35, 450 40, 450 50"/>
+        <path d="M35 465 C45 465, 50 460, 50 450"/>
+        <path d="M465 465 C455 465, 450 460, 450 450"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ BACH — Opus 01 ============ -->
+<section class="composer-section" id="bach">
+  <div class="composer-wrap">
+    <aside class="composer-side">
+      <div class="portrait-frame">
+        <svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="200" height="260" fill="#EFE7DA"/>
+          <!-- Bach silhouette: baroque wig, coat -->
+          <g fill="#6E1522" stroke="#4A0D17" stroke-width="0.8">
+            <!-- wig -->
+            <path d="M60 80 C50 60, 60 40, 100 35 C140 40, 150 60, 140 80 C155 90, 158 120, 150 135 C155 145, 150 160, 140 165 L145 175 L60 175 L55 165 C45 160, 40 145, 45 135 C37 120, 40 90, 55 80 Z"/>
+            <!-- face -->
+            <ellipse cx="100" cy="115" rx="30" ry="38" fill="#EFE7DA"/>
+            <!-- eyes -->
+            <ellipse cx="88" cy="110" rx="2" ry="3" fill="#1A1614"/>
+            <ellipse cx="112" cy="110" rx="2" ry="3" fill="#1A1614"/>
+            <!-- nose -->
+            <path d="M100 115 L98 125 L102 125 Z" fill="#C9A961" opacity="0.4"/>
+            <!-- mouth -->
+            <path d="M92 138 C96 141, 104 141, 108 138" stroke="#4A0D17" stroke-width="1.2" fill="none"/>
+            <!-- coat/collar -->
+            <path d="M50 175 L60 200 L100 210 L140 200 L150 175 L145 220 L55 220 Z" fill="#1A1614"/>
+            <path d="M85 175 L100 195 L115 175 Z" fill="#F5EFE6"/>
+          </g>
+          <!-- Frame ornament -->
+          <g stroke="#C9A961" stroke-width="0.8" fill="none">
+            <path d="M100 240 C90 235, 85 245, 100 250 C115 245, 110 235, 100 240 Z"/>
+          </g>
+          <text x="100" y="255" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="8" font-style="italic" fill="#3A3128">J.S. BACH · 1685–1750</text>
+        </svg>
+      </div>
+
+      <div class="facts">
+        <dl>
+          <dt>생몰</dt><dd>1685 – 1750</dd>
+          <dt>출생지</dt><dd>독일 아이제나흐</dd>
+          <dt>시대</dt><dd>바로크 후기</dd>
+          <dt>주악기</dt><dd>오르간, 하프시코드</dd>
+          <dt>작품수</dt><dd>BWV 1,128편</dd>
+          <dt>별칭</dt><dd>음악의 아버지</dd>
+        </dl>
+      </div>
+    </aside>
+
+    <article class="composer-main">
+      <div class="opus-num">OPUS 01 · BAROQUE</div>
+      <h3>Johann Sebastian <em>Bach</em></h3>
+      <div class="composer-ko">요한 제바스티안 바흐</div>
+
+      <p class="standfirst">
+        서양음악의 문법을 다시 쓴 사람이 있었다면, 그것은 라이프치히의
+        한 성가대장이었다. 그는 유행을 좇지 않았고, 결과적으로 시대를
+        초월했다.
+      </p>
+
+      <div class="drop-cap">
+        <p>
+          아이제나흐의 음악가 집안에서 태어난 바흐는 열 살에 고아가 되었다.
+          형의 집에서 필사(筆寫)로 밤을 새우며 배운 대위법은 훗날 그의
+          모든 것이 된다. 아른슈타트, 뮐하우젠, 바이마르, 쾨텐을 거쳐
+          1723년 마침내 라이프치히 성 토마스 교회의 칸토르(합창장)로
+          부임한 그는 남은 27년을 그곳에서 마쳤다.
+        </p>
+      </div>
+
+      <p>
+        바흐가 남긴 1천여 편의 작품은 단순한 다작이 아니다.
+        평균율 클라비어 곡집은 24개 조성 전체를 하나의 논리 체계로
+        조직한 최초의 시도였고, 골드베르크 변주곡은 하나의 아리아에서
+        30개의 변주를 뽑아내는 극한의 대위법 실험이었다. 그의 음악은
+        수학이 노래를 부르는 순간처럼 들린다.
+      </p>
+
+      <p>
+        생전에는 오르가니스트로만 이름났고, 사후 반세기 동안 잊혔다.
+        1829년 젊은 멘델스존이 마태 수난곡을 다시 무대에 올린 그날부터
+        바흐는 비로소 “음악의 아버지”가 되었다. 뒤늦게 온 인정은,
+        진짜 위대함이 시간에 씻겨도 남는 것임을 증명했다.
+      </p>
+
+      <div class="pull-quote">
+        <blockquote>
+          “음악의 목적은 오직 하나 —<br>
+          신의 영광과 마음의 갱생이다.”
+        </blockquote>
+        <cite>— J.S. Bach</cite>
+      </div>
+
+      <div class="works">
+        <h4>대표작 · Essential Works</h4>
+        <ol>
+          <li><strong>브란덴부르크 협주곡</strong>BWV 1046–1051 <em>(1721)</em></li>
+          <li><strong>평균율 클라비어 곡집</strong>BWV 846–893 <em>(1722·1742)</em></li>
+          <li><strong>마태 수난곡</strong>BWV 244 <em>(1727)</em></li>
+          <li><strong>골드베르크 변주곡</strong>BWV 988 <em>(1741)</em></li>
+          <li><strong>무반주 첼로 모음곡</strong>BWV 1007–1012 <em>(c.1720)</em></li>
+          <li><strong>토카타와 푸가 라단조</strong>BWV 565 <em>(오르간)</em></li>
+          <li><strong>푸가의 기법</strong>BWV 1080 <em>(미완, 1750)</em></li>
+          <li><strong>미사 나단조</strong>BWV 232 <em>(1749)</em></li>
+        </ol>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ VIVALDI — Opus 02 ============ -->
+<section class="composer-section" id="vivaldi">
+  <div class="composer-wrap">
+    <aside class="composer-side">
+      <div class="portrait-frame">
+        <svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="200" height="260" fill="#EFE7DA"/>
+          <!-- Vivaldi: red-haired priest, "il prete rosso" -->
+          <g stroke="#4A0D17" stroke-width="0.8">
+            <!-- red hair -->
+            <path d="M60 90 C55 65, 75 45, 100 45 C125 45, 145 65, 140 90 C148 100, 148 125, 140 140 L145 165 L55 165 L60 140 C52 125, 52 100, 60 90 Z" fill="#8B1D2C"/>
+            <!-- face -->
+            <ellipse cx="100" cy="115" rx="28" ry="36" fill="#EFE7DA"/>
+            <!-- eyes -->
+            <ellipse cx="90" cy="112" rx="2" ry="3" fill="#1A1614"/>
+            <ellipse cx="110" cy="112" rx="2" ry="3" fill="#1A1614"/>
+            <!-- brow -->
+            <path d="M85 105 L95 104" stroke="#6E1522" stroke-width="1.2"/>
+            <path d="M105 104 L115 105" stroke="#6E1522" stroke-width="1.2"/>
+            <!-- nose -->
+            <path d="M100 118 L98 128 L102 128 Z" fill="#C9A961" opacity="0.4"/>
+            <!-- mouth -->
+            <path d="M93 140 C97 142, 103 142, 107 140" stroke="#4A0D17" stroke-width="1.2" fill="none"/>
+            <!-- clerical collar (priest) -->
+            <path d="M75 165 L100 175 L125 165 L145 175 L145 220 L55 220 L55 175 Z" fill="#1A1614"/>
+            <rect x="88" y="165" width="24" height="14" fill="#F5EFE6"/>
+          </g>
+          <text x="100" y="255" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="8" font-style="italic" fill="#3A3128">A. VIVALDI · 1678–1741</text>
+        </svg>
+      </div>
+
+      <div class="facts">
+        <dl>
+          <dt>생몰</dt><dd>1678 – 1741</dd>
+          <dt>출생지</dt><dd>이탈리아 베네치아</dd>
+          <dt>시대</dt><dd>바로크 중·후기</dd>
+          <dt>주악기</dt><dd>바이올린</dd>
+          <dt>작품수</dt><dd>협주곡 500여 곡</dd>
+          <dt>별칭</dt><dd>붉은 사제 (Il Prete Rosso)</dd>
+        </dl>
+      </div>
+    </aside>
+
+    <article class="composer-main">
+      <div class="opus-num">OPUS 02 · BAROQUE · VENEZIA</div>
+      <h3>Antonio <em>Vivaldi</em></h3>
+      <div class="composer-ko">안토니오 비발디</div>
+
+      <p class="standfirst">
+        그가 없었다면 “협주곡”이라는 형식 자체가 지금과 달랐을 것이다.
+        붉은 머리의 사제는 베네치아의 물길 위에 음악의 새 문법을 새겼다.
+      </p>
+
+      <div class="drop-cap">
+        <p>
+          비발디는 성 마르코 대성당 바이올리니스트의 아들로 태어났다.
+          25세에 사제 서품을 받았지만, 천식으로 미사 집전을 곧 포기했다.
+          대신 그가 평생 몸담은 곳은 베네치아의 고아 소녀 음악학교 —
+          오스페달레 델라 피에타(Ospedale della Pietà)였다. 이곳에서
+          그는 40년간 교사이자 작곡가로 일했고, 소녀들의 앙상블을
+          유럽 최고의 오케스트라로 만들었다.
+        </p>
+      </div>
+
+      <p>
+        『사계』는 그의 대표작이자 서양음악사 최초의 본격 표제음악이다.
+        각 계절마다 시(소네트)를 붙이고, 새 소리·번개·얼음 위를 걷는
+        발걸음까지 음(音)으로 그렸다. 지금 우리가 알고 있는
+        “장면을 그리는 음악”은 대부분 여기서 출발한다.
+      </p>
+
+      <p>
+        생전에는 유럽 전역에서 명성을 떨쳤으나, 말년에는 유행이 지나
+        빈에서 가난하게 세상을 떠났다. 그가 남긴 500여 곡의 협주곡은
+        20세기 초 다시 발굴되기 전까지 도서관에서 잠들어 있었다.
+        비발디의 재발견은 곧 바로크 부흥 운동 그 자체였다.
+      </p>
+
+      <div class="pull-quote">
+        <blockquote>
+          “봄이 왔다. 새들이 즐거운 노래로<br>
+          기쁘게 봄을 맞이한다.”
+        </blockquote>
+        <cite>— 『봄』 소네트 서두 · 사계 中</cite>
+      </div>
+
+      <div class="works">
+        <h4>대표작 · Essential Works</h4>
+        <ol>
+          <li><strong>사계</strong>Op.8 No.1–4 <em>(1725)</em></li>
+          <li><strong>조화의 영감</strong>Op.3 <em>(협주곡집, 1711)</em></li>
+          <li><strong>글로리아</strong>RV 589 <em>(합창)</em></li>
+          <li><strong>만델리나 세리메노</strong>바이올린 협주곡 RV 234</li>
+          <li><strong>바이올린 소나타 A단조</strong>RV 43</li>
+          <li><strong>스타바트 마테르</strong>RV 621</li>
+          <li><strong>플루트 협주곡 “홍방울새”</strong>Op.10 No.3</li>
+          <li><strong>4대의 바이올린을 위한 협주곡</strong>Op.3 No.10</li>
+        </ol>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ MOZART — Opus 03 ============ -->
+<section class="composer-section" id="mozart">
+  <div class="composer-wrap">
+    <aside class="composer-side">
+      <div class="portrait-frame">
+        <svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="200" height="260" fill="#EFE7DA"/>
+          <!-- Mozart: powdered wig, classical era -->
+          <g stroke="#4A0D17" stroke-width="0.8">
+            <!-- powdered wig -->
+            <path d="M60 90 C50 55, 90 40, 100 42 C110 40, 150 55, 140 90 C155 100, 158 130, 148 150 C155 165, 145 175, 135 172 L140 180 L60 180 L65 172 C55 175, 45 165, 52 150 C42 130, 45 100, 60 90 Z" fill="#F5EFE6"/>
+            <!-- side curls -->
+            <ellipse cx="45" cy="130" rx="14" ry="18" fill="#F5EFE6" stroke="#3A3128" stroke-width="0.5"/>
+            <ellipse cx="155" cy="130" rx="14" ry="18" fill="#F5EFE6" stroke="#3A3128" stroke-width="0.5"/>
+            <!-- wig ribbon at back (small) -->
+            <path d="M100 175 L98 185 L102 185 Z" fill="#1A1614"/>
+            <!-- face -->
+            <ellipse cx="100" cy="118" rx="27" ry="34" fill="#F0E0CE"/>
+            <!-- eyes -->
+            <ellipse cx="90" cy="115" rx="2" ry="3" fill="#1A1614"/>
+            <ellipse cx="110" cy="115" rx="2" ry="3" fill="#1A1614"/>
+            <!-- nose -->
+            <path d="M100 120 L98 130 L102 130 Z" fill="#C9A961" opacity="0.4"/>
+            <!-- mouth -->
+            <path d="M93 142 C97 145, 103 145, 107 142" stroke="#4A0D17" stroke-width="1.2" fill="none"/>
+            <!-- coat -->
+            <path d="M65 180 L100 200 L135 180 L150 225 L50 225 Z" fill="#6E1522"/>
+            <path d="M80 180 L100 220 L120 180 L100 195 Z" fill="#F5EFE6"/>
+            <!-- gold trim -->
+            <path d="M85 195 L100 210 L115 195" stroke="#C9A961" stroke-width="1.2" fill="none"/>
+          </g>
+          <text x="100" y="255" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="8" font-style="italic" fill="#3A3128">W.A. MOZART · 1756–1791</text>
+        </svg>
+      </div>
+
+      <div class="facts">
+        <dl>
+          <dt>생몰</dt><dd>1756 – 1791</dd>
+          <dt>출생지</dt><dd>오스트리아 잘츠부르크</dd>
+          <dt>시대</dt><dd>고전주의</dd>
+          <dt>주악기</dt><dd>피아노, 바이올린</dd>
+          <dt>작품수</dt><dd>KV 626편</dd>
+          <dt>별칭</dt><dd>신동, 음악의 완성자</dd>
+        </dl>
+      </div>
+    </aside>
+
+    <article class="composer-main">
+      <div class="opus-num">OPUS 03 · CLASSICAL · WIEN</div>
+      <h3>Wolfgang Amadeus <em>Mozart</em></h3>
+      <div class="composer-ko">볼프강 아마데우스 모차르트</div>
+
+      <p class="standfirst">
+        서른다섯 해 짧은 생 동안 626편. 그 숫자보다 놀라운 것은
+        그중 무엇 하나 어색한 곳이 없다는 사실이다. 모차르트는
+        완성 그 자체를 자연스러움처럼 다뤘다.
+      </p>
+
+      <div class="drop-cap">
+        <p>
+          잘츠부르크 궁정 부악장의 아들로 태어난 그는 세 살에 하프시코드를
+          쳤고, 다섯 살에 미뉴에트를 작곡했다. 여섯 살부터 아버지 손에
+          이끌려 유럽 궁정 순회를 시작했다. 파리·런던·밀라노·빈 —
+          유년기의 대부분이 여관과 마차 안에서 지나갔다.
+        </p>
+      </div>
+
+      <p>
+        1781년, 잘츠부르크 대주교와의 결별 후 빈에 정착한 그는
+        비로소 자유 예술가로서 살기 시작했다. 결혼 상대는 콘스탄체 베버.
+        음악은 절정에 이르렀지만 가계는 늘 궁핍했다. 그럼에도
+        『피가로의 결혼』, 『돈 조반니』, 『마술피리』가 이 시기 태어났다.
+      </p>
+
+      <p>
+        1791년 12월 5일 새벽, 그는 채 완성하지 못한 『레퀴엠』의
+        『라크리모사』를 옆에 둔 채 눈을 감았다. 익명의 의뢰인이 요구한
+        진혼 미사가, 결국 자신을 위한 진혼가가 된 것이다. 향년 서른다섯 —
+        묘지 위치조차 정확히 알 수 없이 공동묘지에 묻혔다.
+      </p>
+
+      <div class="pull-quote">
+        <blockquote>
+          “음악은 음표 안에 있지 않다.<br>
+          음표와 음표 사이의 침묵에 있다.”
+        </blockquote>
+        <cite>— W.A. Mozart</cite>
+      </div>
+
+      <div class="works">
+        <h4>대표작 · Essential Works</h4>
+        <ol>
+          <li><strong>피가로의 결혼</strong>K.492 <em>(오페라, 1786)</em></li>
+          <li><strong>돈 조반니</strong>K.527 <em>(오페라, 1787)</em></li>
+          <li><strong>마술피리</strong>K.620 <em>(오페라, 1791)</em></li>
+          <li><strong>레퀴엠 라단조</strong>K.626 <em>(미완, 1791)</em></li>
+          <li><strong>교향곡 제41번 “주피터”</strong>K.551 <em>(1788)</em></li>
+          <li><strong>피아노 협주곡 제21번</strong>K.467 <em>(1785)</em></li>
+          <li><strong>세레나데 “아이네 클라이네 나흐트무지크”</strong>K.525</li>
+          <li><strong>피아노 소나타 제11번 “터키 행진곡”</strong>K.331</li>
+        </ol>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ CHOPIN — Opus 04 ============ -->
+<section class="composer-section" id="chopin">
+  <div class="composer-wrap">
+    <aside class="composer-side">
+      <div class="portrait-frame">
+        <svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="200" height="260" fill="#EFE7DA"/>
+          <!-- Chopin: romantic, delicate features -->
+          <g stroke="#4A0D17" stroke-width="0.8">
+            <!-- dark wavy hair -->
+            <path d="M62 95 C55 65, 80 42, 100 45 C120 42, 145 65, 138 95 C148 108, 145 135, 138 148 L145 172 L55 172 L62 148 C55 135, 52 108, 62 95 Z" fill="#3A2818"/>
+            <!-- side hair swoop (romantic) -->
+            <path d="M55 100 C48 115, 50 135, 60 145" fill="#3A2818"/>
+            <path d="M145 100 C152 115, 150 135, 140 145" fill="#3A2818"/>
+            <!-- pale face -->
+            <ellipse cx="100" cy="118" rx="25" ry="35" fill="#F5EDDF"/>
+            <!-- eyes (delicate) -->
+            <ellipse cx="90" cy="115" rx="2" ry="2.5" fill="#1A1614"/>
+            <ellipse cx="110" cy="115" rx="2" ry="2.5" fill="#1A1614"/>
+            <!-- brows -->
+            <path d="M85 108 L95 106" stroke="#3A2818" stroke-width="1"/>
+            <path d="M105 106 L115 108" stroke="#3A2818" stroke-width="1"/>
+            <!-- nose (elongated, romantic) -->
+            <path d="M100 118 L97 132 L103 132 Z" fill="#C9A961" opacity="0.4"/>
+            <!-- mouth (small) -->
+            <path d="M95 143 C98 145, 102 145, 105 143" stroke="#4A0D17" stroke-width="1" fill="none"/>
+            <!-- Cravat / neck tie -->
+            <path d="M75 172 L100 180 L125 172 L145 178 L150 225 L50 225 L55 178 Z" fill="#1A1614"/>
+            <ellipse cx="100" cy="188" rx="18" ry="14" fill="#F5EFE6"/>
+            <path d="M95 195 L100 210 L105 195" fill="#F5EFE6"/>
+          </g>
+          <text x="100" y="255" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="8" font-style="italic" fill="#3A3128">F. CHOPIN · 1810–1849</text>
+        </svg>
+      </div>
+
+      <div class="facts">
+        <dl>
+          <dt>생몰</dt><dd>1810 – 1849</dd>
+          <dt>출생지</dt><dd>폴란드 젤라조바볼라</dd>
+          <dt>시대</dt><dd>낭만주의 초기</dd>
+          <dt>주악기</dt><dd>피아노 (거의 전곡)</dd>
+          <dt>작품수</dt><dd>약 230편</dd>
+          <dt>별칭</dt><dd>피아노의 시인</dd>
+        </dl>
+      </div>
+    </aside>
+
+    <article class="composer-main">
+      <div class="opus-num">OPUS 04 · ROMANTIC · PARIS</div>
+      <h3>Frédéric <em>Chopin</em></h3>
+      <div class="composer-ko">프레데리크 쇼팽</div>
+
+      <p class="standfirst">
+        피아노가 시(詩)를 쓸 수 있음을 처음으로 증명한 사람.
+        그의 손에서 건반은 인간의 목소리처럼 노래하기 시작했다.
+      </p>
+
+      <div class="drop-cap">
+        <p>
+          쇼팽은 바르샤바 근교 젤라조바볼라에서 태어났다. 여덟 살에
+          첫 공개 연주회를 열었고, 스무 살이 되기 전에 이미 조국
+          폴란드에서 신동으로 알려졌다. 1830년, 스무 살의 그는 연주 여행을
+          위해 빈으로 떠났다. 며칠 뒤 바르샤바에서 봉기가 일어났고,
+          러시아에 진압되었다. 그는 다시는 조국에 돌아가지 못했다.
+        </p>
+      </div>
+
+      <p>
+        1831년부터 파리에 정착한 그는 살롱의 총아가 되었다. 대규모 무대보다
+        소수의 청중 앞에서 즉흥에 가까운 연주를 즐겼고, 스승 리스트가
+        불꽃이라면 그는 촛불이었다. 조르주 상드와의 9년, 요절한 폐결핵,
+        마요르카 발데모사의 겨울 — 그의 삶은 대부분 그의 야상곡처럼
+        섬세하고 어둡게 진행되었다.
+      </p>
+
+      <p>
+        조국을 그리는 마음은 폴로네즈와 마주르카로 응결되었다.
+        서양음악사에서 처음으로 “민족의 리듬”을 살롱 예술의 언어로
+        번역해 낸 사람이 바로 쇼팽이다. 죽을 때 그는 유언했다.
+        “내 심장은 바르샤바로 보내 달라.” 유언은 지켜졌다.
+        지금도 그의 심장은 성 십자가 성당 기둥 안에 봉안되어 있다.
+      </p>
+
+      <div class="pull-quote">
+        <blockquote>
+          “단순함 — 그것이<br>
+          모든 아름다움의 마지막 목표다.”
+        </blockquote>
+        <cite>— F. Chopin</cite>
+      </div>
+
+      <div class="works">
+        <h4>대표작 · Essential Works</h4>
+        <ol>
+          <li><strong>야상곡 Op.9 No.2</strong>내림 마장조 <em>(1832)</em></li>
+          <li><strong>발라드 제1번</strong>Op.23 사단조 <em>(1836)</em></li>
+          <li><strong>영웅 폴로네즈</strong>Op.53 <em>(1842)</em></li>
+          <li><strong>즉흥 환상곡</strong>Op.66 <em>(유작)</em></li>
+          <li><strong>피아노 협주곡 제1번</strong>Op.11 <em>(1830)</em></li>
+          <li><strong>에튀드 “혁명”</strong>Op.10 No.12</li>
+          <li><strong>피아노 소나타 제2번 “장송”</strong>Op.35</li>
+          <li><strong>마주르카 Op.7</strong> <em>(폴란드 민속 리듬)</em></li>
+        </ol>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="timeline-section" id="timeline">
+  <div class="timeline-inner">
+    <h3>Four Composers · Four Ages</h3>
+    <div class="sub">네 명의 거장, 네 시대를 잇다</div>
+    <div class="timeline-grid">
+      <div class="tl-item">
+        <div class="year">1685</div>
+        <div class="name">J.S. Bach</div>
+        <div class="era">Baroque · 바로크</div>
+      </div>
+      <div class="tl-item">
+        <div class="year">1678</div>
+        <div class="name">A. Vivaldi</div>
+        <div class="era">Baroque · 베네치아</div>
+      </div>
+      <div class="tl-item">
+        <div class="year">1756</div>
+        <div class="name">W.A. Mozart</div>
+        <div class="era">Classical · 고전</div>
+      </div>
+      <div class="tl-item">
+        <div class="year">1810</div>
+        <div class="name">F. Chopin</div>
+        <div class="era">Romantic · 낭만</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARISON TABLE ============ -->
+<section class="compare" id="compare">
+  <h3>한 눈에 보는 <em style="color:var(--wine);font-style:italic">네 거장</em></h3>
+  <div class="sub">A quick reference across four masters</div>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>작곡가</th>
+        <th>시대</th>
+        <th>중심 도시</th>
+        <th>중심 형식</th>
+        <th>대표 유산</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Bach</td>
+        <td>바로크 후기</td>
+        <td>라이프치히</td>
+        <td>대위법 · 푸가 · 칸타타</td>
+        <td>서양음악의 문법 그 자체</td>
+      </tr>
+      <tr>
+        <td>Vivaldi</td>
+        <td>바로크 중·후기</td>
+        <td>베네치아</td>
+        <td>협주곡 · 표제음악</td>
+        <td>협주곡 형식과 표제음악의 기원</td>
+      </tr>
+      <tr>
+        <td>Mozart</td>
+        <td>고전주의</td>
+        <td>빈</td>
+        <td>오페라 · 교향곡 · 협주곡</td>
+        <td>고전주의의 완성, 형식의 자연스러움</td>
+      </tr>
+      <tr>
+        <td>Chopin</td>
+        <td>낭만주의 초기</td>
+        <td>파리</td>
+        <td>피아노 독주 · 야상곡 · 마주르카</td>
+        <td>피아노의 시화(詩化), 민족 리듬의 예술화</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="newsletter" id="newsletter">
+  <div class="newsletter-inner">
+    <div class="eyebrow">The Weekly Downbeat</div>
+    <h3>공연 소식을 <em>가장 먼저</em>.</h3>
+    <p>
+      유럽과 한국의 리뷰 · 인터뷰 · 공연 일정 —
+      매주 금요일, 편집부가 고른 한 통의 메일로.
+    </p>
+    <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='구독 완료';">
+      <input type="email" placeholder="you@email.com" required>
+      <button type="submit">구독하기</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h4>CADENZA<span class="period">.</span></h4>
+      <p>The Classical Music Review · Europe &amp; Korea Edition. 오케스트라, 협연, 그리고 사람의 이야기를 다룹니다.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Composers</h5>
+      <ul>
+        <li><a href="#bach">J.S. Bach</a></li>
+        <li><a href="#vivaldi">A. Vivaldi</a></li>
+        <li><a href="#mozart">W.A. Mozart</a></li>
+        <li><a href="#chopin">F. Chopin</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Sections</h5>
+      <ul>
+        <li><a href="#hero">특집호 서문</a></li>
+        <li><a href="#timeline">연대기</a></li>
+        <li><a href="#compare">비교</a></li>
+        <li><a href="#newsletter">뉴스레터</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Follow</h5>
+      <ul>
+        <li><a href="https://philgoose.github.io/classic/">CADENZA 본지</a></li>
+        <li><a href="https://github.com/philgoose">GitHub</a></li>
+        <li><a href="https://www.feelsogood.shop">feelsogood.shop</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 CADENZA · 대작곡가 특집호</div>
+    <div>Built with <strong>좋은기분(Feelsogood^^)</strong></div>
+  </div>
+</footer>
+
+<script>
+// Theme toggle
+(function(){
+  const btn = document.getElementById('theme-toggle');
+  const key = 'cadenza-theme';
+  const saved = localStorage.getItem(key);
+  if(saved === 'dark'){
+    document.documentElement.setAttribute('data-theme','dark');
+    btn.textContent = '☀ 라이트';
+  }
+  btn.addEventListener('click', function(){
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if(isDark){
+      document.documentElement.removeAttribute('data-theme');
+      btn.textContent = '☾ 다크';
+      localStorage.setItem(key, 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme','dark');
+      btn.textContent = '☀ 라이트';
+      localStorage.setItem(key, 'dark');
+    }
+  });
+})();
+
+// Smooth scroll active section highlighting (subtle)
+(function(){
+  const links = document.querySelectorAll('.nav-bar a');
+  const sections = ['hero','mozart','vivaldi','chopin','bach','timeline','compare','newsletter']
+    .map(id=>document.getElementById(id)).filter(Boolean);
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const id = e.target.id;
+        links.forEach(a=>{
+          if(a.getAttribute('href') === '#'+id){
+            a.style.background = 'var(--wine)';
+            a.style.color = 'var(--ivory)';
+          } else {
+            a.style.background = '';
+            a.style.color = '';
+          }
+        });
+      }
+    });
+  }, {threshold: 0.35});
+
+  sections.forEach(s=>observer.observe(s));
+})();
+</script>
+
+</body>
+</html>
