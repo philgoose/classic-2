@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://philgoose.github.io/classic-2/sitemap.xml
